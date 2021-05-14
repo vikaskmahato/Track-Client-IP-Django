@@ -1,0 +1,3 @@
+files:
+  - source: /tracker/accounts/templates
+    translation: /translations/translatedfiles.%two_letters_code%
