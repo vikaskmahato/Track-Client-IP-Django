@@ -1,15 +1,29 @@
-{% extends 'base.html'%}
-{% load static %}
-
+{%extends 'base.html'%}
+{%load static%}
+{%block head%}{{block.super}}
+<link rel="stylesheet" href="{% static 'css/sign.css' %}">
+<title>Login</title>
+{%endblock head%}
 {%block content%}
-{% if user.is_authenticated %}
-<div class="alert alert-success" role="alert">
-    Your IP Address is :- {{client_ip}}
-  </div>
-{% else %}
-<div class="alert alert-danger" role="alert">
-    Login to see your IP Address  !
-  </div>
-{% endif %}
+<h3 class="text-center"> {{error}}</h3>
+<div class="login-form">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h2 class="text-center">Login</h2>       
+        <div class="form-group" >
+            
+                {{form1.as_p}}
+            
+        </div>
+       <div class="form-group">
+           <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </div>
+            
+        
+    </form>
+</div>
+
+
     
+
 {%endblock content%}
